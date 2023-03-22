@@ -10,7 +10,7 @@ console.log(score);
 document.querySelector('main').innerHTML = `
     <section class="card">
         <img src="${pic}" />
-        <p>Welcome, ${firstName}. Your current high score is ${score}.</p>
+        <p>Welcome, ${firstName}. Your current high score is ${score * 1000}.</p>
     </section>
 `;
 
