@@ -1,12 +1,12 @@
 let x = 100;
-let y = 200;
+let y = 0;
 let width = 50;
 let speed = 10;
 
 const canvasWidth = window.innerWidth;
 const canvasHeight = window.innerHeight; 
 
-async function setup() {
+function setup() {
     createCanvas(canvasWidth, canvasHeight);
 }
 
@@ -15,10 +15,12 @@ async function setup() {
 // in an animation loop (which is part of how p5.js 
 // works).
 function draw() {
-    x += speed;
+    // x += speed;
+    width += 3;
+    y += speed;
 
     clear();
     noFill();
     circle(x, y, width);
-    drawGrid(canvasWidth, canvasHeight);
+    // drawGrid(canvasWidth, canvasHeight);
 }

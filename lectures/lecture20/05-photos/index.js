@@ -17,9 +17,15 @@ const photos = [
     'images/daisy1.jpg'
 ];
 
-// Create a card for every image in the photos list using a for...of loop and
-// template variables
-let template = `
-    <div class="card" style="background-image:url('images/poppies.jpg')"></div>
-`;
-document.querySelector('.cards').insertAdjacentHTML('beforeend', template);
+let numPhoto = 0;
+while (numPhoto < photos.length) {
+    // Create a card for every image in the photos list using a for...of loop and
+    // template variables
+    let template = `
+        <div class="card" style="background-image:url('${ photos[numPhoto] }')"></div>
+    `;
+    document.querySelector('.cards').insertAdjacentHTML('beforeend', template);
+
+    // don't forget to increment the counter
+    ++numPhoto;
+}
