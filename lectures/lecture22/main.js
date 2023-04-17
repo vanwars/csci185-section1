@@ -33,20 +33,25 @@ function search() {
     // of the web page. 
     // 1. How do you target the ".courses" section?
     // document.querySelector('.courses').innerHTML = data[900].Title + ' - ' + data[900].Instructors[0].Name;
-    const i = 100;
-    let instructor = 'TBD';
-    if (data[i].Instructors.length > 0) {
-        instructor = data[i].Instructors[0].Name;
+    let i = 0;
+    while (i < data.length) {
+        
+        let instructor = 'TBD';
+        if (data[i].Instructors.length > 0) {
+            instructor = data[i].Instructors[0].Name;
+        }
+        document.querySelector('.courses').insertAdjacentHTML(
+            'beforeend',
+            `<section class="course">
+                <h2>${data[i].Code}: ${ data[i].Title }</h2>
+                <p>
+                    ${ data[i].Days } &bull; ${ data[i].Location.FullLocation } &bull; ${data[i].Hours} credit hour(s)
+                </p>
+                <p><strong>${ instructor }</strong></p>
+            </section>`
+        );
+        i++;
     }
-    document.querySelector('.courses').innerHTML = `
-        <section class="course">
-            <h2>${data[i].Code}: ${ data[i].Title }</h2>
-            <p>
-                ${ data[i].Days } &bull; ${ data[i].Location.FullLocation } &bull; ${data[i].Hours} credit hour(s)
-            </p>
-            <p><strong>${ instructor }</strong></p>
-        </section>
-    `;
 
     // const searchTerm = document.querySelector('#search_term').value;
 }
