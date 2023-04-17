@@ -44,7 +44,10 @@ function search() {
             instructor = data[i].Instructors[0].Name;
         }
         // look in instructor or title
-        if (instructor.includes(searchTerm) || data[i].Title.includes(searchTerm)) {
+
+        // Question: Only show diversity intensives
+        if (data[i].Classification.DiversityIntensive === true || data[i].Classification.DiversityIntensiveR === true) {
+        //if (instructor.includes(searchTerm) || data[i].Title.includes(searchTerm)) {
             // Lines of code that add a new element to the DOM:
             document.querySelector('.courses').insertAdjacentHTML(
                 'beforeend',
