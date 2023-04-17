@@ -28,19 +28,22 @@ function search() {
     console.log(data);
     console.log(data[0].Title);
     console.log(data[0].Instructors[0].Name);
-
+    
+    // clear out the search results:
+    document.querySelector('.courses').innerHTML = '';
     // Output the title of the first course to the ".courses" section
     // of the web page. 
     // 1. How do you target the ".courses" section?
     // document.querySelector('.courses').innerHTML = data[900].Title + ' - ' + data[900].Instructors[0].Name;
     let i = 0;
+    const searchTerm = document.querySelector('#search_term').value;
     while (i < data.length) {
         
         let instructor = 'TBD';
         if (data[i].Instructors.length > 0) {
             instructor = data[i].Instructors[0].Name;
         }
-        if (data[i].Department === 'NM') {
+        if (instructor.includes(searchTerm)) {
             // Lines of code that add a new element to the DOM:
             document.querySelector('.courses').insertAdjacentHTML(
                 'beforeend',
