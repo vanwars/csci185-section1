@@ -28,7 +28,7 @@ function search() {
     console.log(data);
     console.log(data[0].Title);
     console.log(data[0].Instructors[0].Name);
-    
+
     // clear out the search results:
     document.querySelector('.courses').innerHTML = '';
     // Output the title of the first course to the ".courses" section
@@ -43,7 +43,8 @@ function search() {
         if (data[i].Instructors.length > 0) {
             instructor = data[i].Instructors[0].Name;
         }
-        if (instructor.includes(searchTerm)) {
+        // look in instructor or title
+        if (instructor.includes(searchTerm) || data[i].Title.includes(searchTerm)) {
             // Lines of code that add a new element to the DOM:
             document.querySelector('.courses').insertAdjacentHTML(
                 'beforeend',
@@ -58,6 +59,4 @@ function search() {
         }
         i++;
     }
-
-    // const searchTerm = document.querySelector('#search_term').value;
 }
