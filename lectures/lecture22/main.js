@@ -40,16 +40,19 @@ function search() {
         if (data[i].Instructors.length > 0) {
             instructor = data[i].Instructors[0].Name;
         }
-        document.querySelector('.courses').insertAdjacentHTML(
-            'beforeend',
-            `<section class="course">
-                <h2>${data[i].Code}: ${ data[i].Title }</h2>
-                <p>
-                    ${ data[i].Days } &bull; ${ data[i].Location.FullLocation } &bull; ${data[i].Hours} credit hour(s)
-                </p>
-                <p><strong>${ instructor }</strong></p>
-            </section>`
-        );
+        if (data[i].Department === 'NM') {
+            // Lines of code that add a new element to the DOM:
+            document.querySelector('.courses').insertAdjacentHTML(
+                'beforeend',
+                `<section class="course">
+                    <h2>${data[i].Code}: ${ data[i].Title }</h2>
+                    <p>
+                        ${ data[i].Days } &bull; ${ data[i].Location.FullLocation } &bull; ${data[i].Hours} credit hour(s)
+                    </p>
+                    <p><strong>${ instructor }</strong></p>
+                </section>`
+            );
+        }
         i++;
     }
 
